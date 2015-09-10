@@ -2,7 +2,7 @@
  * A resource factory inspired by $resource from AngularJS
  * @version v1.2.3 - 2015-02-09
  * @link https://github.com/FineLinePrototyping/angularjs-rails-resource.git
- * @author 
+ * @author
  */
 
 (function (undefined) {
@@ -635,6 +635,9 @@
                         angular.forEach(data, function (value, key) {
                             self.deserializeAttribute(result, key, value);
                         });
+
+                        if (result.afterInitialize)
+                            result.afterInitialize();
                     }
 
                     return result;
